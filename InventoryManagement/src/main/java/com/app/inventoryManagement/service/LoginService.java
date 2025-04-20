@@ -1,5 +1,7 @@
 package com.app.inventoryManagement.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +15,13 @@ import java.util.Optional;
 
 @Service
 public class LoginService {
+	public Logger logger=LoggerFactory.getLogger(LoginService.class);
 
     @Autowired
     private UserRepository userRepository;
 
     public ResponseEntity<String> validateLogin(LoginRequest loginRequest) {
+    	logger.info("Inside the validate Loging");
         Optional<User> userOpt = userRepository.findByUsername(loginRequest.getUsername());
 
         return userOpt
