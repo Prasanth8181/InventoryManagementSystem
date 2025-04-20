@@ -21,6 +21,7 @@ public class LoginController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest)
     {
+    	logger.info("Inside the login");
     	logger.info("UserName["+loginRequest.getUsername()+"]");
     	logger.info("Password["+loginRequest.getPassword()+"]");
         return loginService.validateLogin(loginRequest);
