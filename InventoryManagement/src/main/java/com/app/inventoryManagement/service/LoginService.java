@@ -22,6 +22,7 @@ public class LoginService {
 
     public ResponseEntity<String> validateLogin(LoginRequest loginRequest) {
     	logger.info("Inside the validate Loging");
+    	logger.info("Inside the validation part");
         Optional<User> userOpt = userRepository.findByUsername(loginRequest.getUsername());
 
         return userOpt
